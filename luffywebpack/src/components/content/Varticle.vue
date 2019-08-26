@@ -76,9 +76,9 @@
           method: "get",
           //这里必要带token值进行后端的登录校验，成功后才能把数据返回
           // params 发过去的是get请求的条件
-          //  params:{
-          //    token:that.$store.state.token
-          //  }
+           params:{
+             token:that.$store.state.token
+           }
         }).then(function (arg) {
           // console.log(arg.data);
           that.head_img = arg.data.data.head_img;
@@ -88,7 +88,7 @@
           that.comment_num = arg.data.data.comment_num;
           that.agree_num = arg.data.data.agree_num;
           that.collect_num = arg.data.data.collect_num;
-          that.comment = arg.data.arcticle_comment;
+          that.comment = arg.data.comment;
         }).catch(function (arg) {
           // console.log(arg.data)
         })
@@ -114,13 +114,13 @@
         }).then(function (arg) {
           //  提交成功后
           if (arg.data.code === 1000) {
-            if (arg.data.data.status) {
+            if (arg.data.status) {
               //表示点赞成功
               //在网页上要展示加1
               that.agree_num++;
             } else {
               //已经点赞过了
-              alert(arg.data.data.msg)
+              alert(arg.data.msg)
             }
           } else {
             // console(arg.data.error)
@@ -146,7 +146,7 @@
         }).then(function (arg) {
           if (arg.data.code === 1000) {
             console.log(arg.data);
-            if (arg.data.collections) {
+            if (arg.data.status) {
               //    收藏成功
               that.collect_num++;
               alert(arg.data.msg)

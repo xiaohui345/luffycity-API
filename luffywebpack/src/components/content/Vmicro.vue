@@ -39,9 +39,9 @@
           method: "get",
           //这里必要带token值进行后端的登录校验，成功后才能把数据返回
           // params 发过去的是get请求的条件
-          //  params:{
-          //    token:that.$store.state.token
-          //  }
+           params:{
+             token:that.$store.state.token
+           }
         }).then(function (arg) {
           console.log(arg.data);
           that.articlelist = arg.data.data;

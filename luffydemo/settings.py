@@ -131,11 +131,12 @@ STATICFILES_DIRS = [
 
 
 REST_FRAMEWORK={
-    "DEFAULT_AUTHENTICATION_CLASSES":[],
 	'VERSION_PARAM':'version',  #版本 get形式的参数
 	'ALLOWED_VERSIONS':['v1','v2'],   # 允许的版本
 	'DEFAULT_VERSION':'v1',  #默认的版本
 	'DEFAULT_VERSIONING_CLASS':'rest_framework.versioning.URLPathVersioning',
 	# 'rest_framework.versioning.QueryParameterVersioning' # 源码里面只支持配置一种方式 ；通过什么方式结合的版本(参数或者是url)
+    # "DEFAULT_PAGINATION_CLASS": 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 2,
 }
 

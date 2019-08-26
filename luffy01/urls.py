@@ -6,7 +6,6 @@ app_name = 'luffy01'
 
 urlpatterns = [
 
-
     #第二种方式
     url(r'course/$', course.CourseView.as_view({"get":"list"})),
     url(r'course/(?P<pk>\d+)/$', course.CourseView.as_view({"get":"retrieve"})),
@@ -21,6 +20,7 @@ urlpatterns = [
 
     #对某篇文章进行点赞API
     url(r'micro/(?P<pk>\d+)/updown/$', course.UpdownView.as_view()),
+
     #收藏API
     url(r'micro/(?P<pk>\d+)/collection/$', course.CollectionView.as_view()),
 ]

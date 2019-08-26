@@ -9,14 +9,14 @@ import hashlib
 # 用户表
 class Userinfo(models.Model):
 	nickname = models.CharField(max_length=64)
-	username = models.CharField(max_length=32)
+	username = models.CharField(max_length=32,unique=True)
 	password = models.CharField(max_length=64)
 
 
 # token表
 class Tokeninfo(models.Model):
 	user = models.OneToOneField(to='Userinfo')
-	tokens = models.CharField(max_length=64)
+	tokens = models.CharField(max_length=64,unique=True)
 
 
 class CourseCategory(models.Model):
